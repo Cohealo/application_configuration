@@ -48,9 +48,10 @@ _code_
 
 You just need to create an initializer that looks something like this.
 
- require 'app_config'
- ::AppConfig = ApplicationConfiguration.new(RAILS_ROOT+"/config/app_config.yml",
-                                            RAILS_ROOT+"/config/environments/#{RAILS_ENV}.yml")
+  require 'application_configuration'
+  ::AppConfig = ApplicationConfiguration.new Rails.root.join("/config/app_config.yml"),
+                                             Rails.root.join("/config/environments/#{Rails.env}.yml")
+
 
 If you installed this as a Rails plugin instead of a gem, that code is already run for you in
 the plugin's init.rb.
